@@ -4,24 +4,9 @@
 
 ## Как пользоваться сервисом
 
-### 1. Запуск сервера
-
-```bash
-# Запустить PostgreSQL (Docker)
-docker run -d --name bank-postgres \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=13d3791semenek \
-  -e POSTGRES_DB=bankdb \
-  -p 5432:5432 \
-  postgres:15
-
-# Запустить приложение
-go run cmd/main.go
-```
-
 Сервер запустится на `http://localhost:8080`
 
-### 2. Рабочий процесс
+### Рабочий процесс
 
 1. **Регистрация** → создаете пользователя
 2. **Логин** → получаете JWT-токен
@@ -152,21 +137,6 @@ Invoke-RestMethod -Uri "http://localhost:8080/accounts/$($account.id)/withdraw" 
 # Без токена
 Invoke-RestMethod -Uri "http://localhost:8080/accounts" -Method GET
 # Ожидаем: 401 Unauthorized
-```
-
-### Проверка БД
-
-```bash
-# Подключиться к PostgreSQL
-docker exec -it bank-postgres psql -U postgres -d bankdb
-
-# Посмотреть данные
-\dt
-SELECT * FROM users;
-SELECT * FROM accounts;
-SELECT * FROM cards;
-SELECT * FROM transactions;
-SELECT * FROM credits;
 ```
 
 ## Ожидаемые ответы
