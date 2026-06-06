@@ -108,7 +108,7 @@ Invoke-RestMethod -Uri "http://localhost:8080/credits" -Method POST `
 # 7. Посмотреть аналитику
 Invoke-RestMethod -Uri "http://localhost:8080/analytics" -Method GET -Headers $headers
 
-Write-Host "✅ Все тесты пройдены!" -ForegroundColor Green
+Write-Host "Все тесты пройдены!" -ForegroundColor Green
 ```
 
 ### Тест перевода (между двумя пользователями)
@@ -133,7 +133,7 @@ Invoke-RestMethod -Uri "http://localhost:8080/transfer" -Method POST `
   -Headers $headers -ContentType "application/json" `
   -Body "{`"from_account_id`": $($account.id), `"to_account_id`": $($account2.id), `"amount`": 10000}"
 
-Write-Host "✅ Перевод выполнен!" -ForegroundColor Green
+Write-Host "Перевод выполнен!" -ForegroundColor Green
 ```
 
 ### Негативные тесты (проверка ошибок)
